@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode("#ff6666", "Cancel", false, ScanMode.DEFAULT);
 
     // janコードから商品を検索
-    String url = "http://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=dj00aiZpPU43aHIyUkp0U2FpeCZzPWNvbnN1bWVyc2VjcmV0Jng9NWU-&seller_id=felista&jan_code=${barcodeScanRes}";
+    String url = "http://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=<Client ID>&seller_id=felista&jan_code=${barcodeScanRes}";
 
     http.get(url).then((response) async {
       Map<String, dynamic> data = json.decode(response.body);
